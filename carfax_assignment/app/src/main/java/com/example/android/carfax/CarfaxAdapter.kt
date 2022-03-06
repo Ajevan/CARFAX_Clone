@@ -10,8 +10,11 @@ import com.example.android.carfax.network.CarListings
 import com.squareup.picasso.Picasso
 
 
-class CarfaxAdapter () :
+class CarfaxAdapter (val listener: OnItemClickListener) :
     RecyclerView.Adapter<CarfaxAdapter.ViewHolder>() {
+    interface OnItemClickListener {
+        fun onItemClick (listing: CarListings)
+    }
     inner class ViewHolder(layout: View) : RecyclerView.ViewHolder(
         layout
     ) {
@@ -52,13 +55,21 @@ class CarfaxAdapter () :
         Picasso.get().load(listing.images.firstPhoto.large).into(holder.carImage)
         val carModel = listing.year.toString() + " " +
                 listing.make + " " +
-                listing.model + " "
+                listing.model + " " +
+                listing.trim
         holder.carModelLine.text = carModel
-        val mainScreenDetails = "$" + listing.currentPrice.toString() +
-                " | " + listing.mileage.toString() + "mi"
+        val mainScreenDetails = "$" + "%,d".format(listing.currentPrice) +
+                " | " + String.format("%.1f", listing.mileage?.toDouble()?.div(1000)) + " mi"
         val carLocation = listing.dealer.city + ", " + listing.dealer.state
         holder.carShortDescriptionLine.text = mainScreenDetails
         holder.carLocationLine.text = carLocation
+        //For the button, create a second onclicklistener that passes the listing, just the first one
+        // Differentiate the click functions by button and view clicks
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(listing)
+        }
+
+
         // TODO Add listener logic here
         /*
         Plan for the details intent
@@ -67,7 +78,7 @@ class CarfaxAdapter () :
         (https://stackoverflow.com/questions/49969278/recyclerview-item-click-listener-the-right-way)
         2. After implementing the logic for listener, create a function in activity that can be passed into the listener logics that takes the listitem as a parameter
         Then log out that item
-
+        3. In the override
         */
     }
 
