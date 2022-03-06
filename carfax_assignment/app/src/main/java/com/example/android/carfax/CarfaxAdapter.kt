@@ -59,7 +59,7 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
                 listing.trim
         holder.carModelLine.text = carModel
         val mainScreenDetails = "$" + "%,d".format(listing.currentPrice) +
-                " | " + String.format("%.1f", listing.mileage?.toDouble()?.div(1000)) + " mi"
+                " | " + String.format("%.1f", listing.mileage?.toDouble()?.div(1000)) + "k mi"
         val carLocation = listing.dealer.city + ", " + listing.dealer.state
         holder.carShortDescriptionLine.text = mainScreenDetails
         holder.carLocationLine.text = carLocation

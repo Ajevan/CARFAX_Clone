@@ -27,7 +27,7 @@ class DetailsActivity : AppCompatActivity() {
         var carPrice = listingValues?.getString("CAR_PRICE");
         var carMileage = listingValues?.getString("CAR_MILEAGE");
         val carShortDescriptionTextView = findViewById<TextView>(R.id.carShortDescription).apply {
-            text = "$" + "%,d".format(carPrice?.toInt()) + " | " + String.format("%.1f", carMileage?.toDouble()?.div(1000)) + " mi"
+            text = "$" + "%,d".format(carPrice?.toInt()) + " | " + String.format("%.1f", carMileage?.toDouble()?.div(1000)) + "k mi"
         }
         var carLocation = listingValues?.getString("CAR_LOCATION");
         val locationValueTextView = findViewById<TextView>(R.id.locationValue).apply {
