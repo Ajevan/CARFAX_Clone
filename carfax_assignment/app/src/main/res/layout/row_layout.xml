@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CarCard"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dip" >
+
+    <ImageView
+        android:id="@+id/CarImg"
+        android:layout_width="360dp"
+        android:layout_height="201dp"
+        android:contentDescription="TODO"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CarModel"
+        android:layout_width="361dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/CarShortDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@id/CarImg"
+        android:gravity="center_vertical"
+        android:text="Example application"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CarImg" />
+
+
+    <TextView
+        android:id="@+id/CarShortDescription"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/CarImg"
+        android:ellipsize="marquee"
+        android:maxLines="3"
+        android:singleLine="true"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CarModel" />
+
+
+    <TextView
+        android:id="@+id/CarLocation"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CarShortDescription" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="359dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CarLocation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
