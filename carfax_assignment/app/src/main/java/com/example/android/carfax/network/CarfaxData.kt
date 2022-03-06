@@ -14,7 +14,11 @@ data class CarListings (val make: String,
                         val currentPrice: Int,
                         val year: Int,
                         val dealer: Dealer,
-                        val images: Image,) {
+                        val images: Image,
+                        val bodytype: String,
+                        val trim: String,
+                        val engine: String,
+                        val fuel: String) {
 
 }
 
