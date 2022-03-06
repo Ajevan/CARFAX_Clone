@@ -13,7 +13,6 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        //Log.i("INFO", intent.getExtras()?.getString("CAR_IMG").toString())
         var listingValues = this.intent.getExtras()
         var carImg = listingValues?.getString("CAR_IMG");
         Picasso.get().load(carImg).into(findViewById<View>(R.id.carImg) as ImageView)

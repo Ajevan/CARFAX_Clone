@@ -63,23 +63,14 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
         val carLocation = listing.dealer.city + ", " + listing.dealer.state
         holder.carShortDescriptionLine.text = mainScreenDetails
         holder.carLocationLine.text = carLocation
-        //For the button, create a second onclicklistener that passes the listing, just the first one
-        // Differentiate the click functions by button and view clicks
+        /*
+        For the call dealer button, create a second onclicklistener that passes the listing, just
+        with the dealer info, then differentiate the click functions by button and view clicks,
+        this would be for the call dealer functionality
+        */
         holder.itemView.setOnClickListener {
             listener.onItemClick(listing)
         }
-
-
-        // TODO Add listener logic here
-        /*
-        Plan for the details intent
-
-        1. Create a listener, a variable for that listener, and then add the click listener logic in where you have setup the text data
-        (https://stackoverflow.com/questions/49969278/recyclerview-item-click-listener-the-right-way)
-        2. After implementing the logic for listener, create a function in activity that can be passed into the listener logics that takes the listitem as a parameter
-        Then log out that item
-        3. In the override
-        */
     }
 
     override fun getItemCount(): Int {

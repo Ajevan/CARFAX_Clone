@@ -48,15 +48,6 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
         super.onStop()
         subscriptions.clear()
     }
-    /*
-    Next steps
-    1. use this override to pass the listing into an intent function and call it so
-    that goes to the next screen
-    2. Display items like in the instructions and go from there
-    For back to the main screen, just use the back button
-    3. If in case when clicking on call dealer it does not work as expected,
-    then group the card elements together and do an onclicklistener on each function
-    */
     override fun onItemClick(listing: CarListings) {
         var intent = Intent(this, DetailsActivity::class.java).apply {
             var extras = Bundle()
@@ -77,8 +68,6 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
             extras.putString("CAR_FUEL", listing.fuel)
             extras.putString("DEALER_PHONENUMBER", listing.dealer.phone)
 
-            //serializedlist = ObjectOutputStream.wr
-            //extras.putSerializable()
             putExtras(extras)
         }
         startActivity(intent)
