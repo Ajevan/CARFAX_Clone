@@ -1,6 +1,7 @@
 package com.example.android.carfax
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -69,6 +70,13 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
             extras.putString("DEALER_PHONENUMBER", listing.dealer.phone)
 
             putExtras(extras)
+        }
+        startActivity(intent)
+    }
+
+    override fun onButtonClick(listing: CarListings) {
+        var intent = Intent(Intent.ACTION_DIAL).apply {
+            setData(Uri.parse("tel:" + listing.dealer.phone))
         }
         startActivity(intent)
     }
