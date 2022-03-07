@@ -9,7 +9,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.carfax.network.CarListings
+import com.example.android.carfax.network.CarListing
 import com.example.android.carfax.viewmodel.CarfaxViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
         super.onStop()
         subscriptions.clear()
     }
-    override fun onItemClick(listing: CarListings) {
+    override fun onItemClick(listing: CarListing) {
         var intent = Intent(this, DetailsActivity::class.java).apply {
             var extras = Bundle()
             extras.putString("CAR_IMG", listing.images.firstPhoto.large)
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
         startActivity(intent)
     }
 
-    override fun onButtonClick(listing: CarListings) {
+    override fun onButtonClick(listing: CarListing) {
         var intent = Intent(Intent.ACTION_DIAL).apply {
             setData(Uri.parse("tel:" + listing.dealer.phone))
         }
