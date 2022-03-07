@@ -3,6 +3,7 @@ package com.example.android.carfax
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
     RecyclerView.Adapter<CarfaxAdapter.ViewHolder>() {
     interface OnItemClickListener {
         fun onItemClick (listing: CarListings)
+        fun onButtonClick (listing: CarListings)
     }
     inner class ViewHolder(layout: View) : RecyclerView.ViewHolder(
         layout
@@ -23,12 +25,14 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
         var carModelLine: TextView
         var carShortDescriptionLine: TextView
         var carLocationLine: TextView
+        var callDealerButton: Button
 
         init {
             carImage = layout.findViewById<View>(R.id.CarImg) as ImageView
             carModelLine = layout.findViewById<View>(R.id.CarModel) as TextView
             carShortDescriptionLine = layout.findViewById<View>(R.id.CarShortDescription) as TextView
             carLocationLine = layout.findViewById<View>(R.id.CarLocation) as TextView
+            callDealerButton = layout.findViewById<View>(R.id.button) as Button
         }
     }
 
@@ -52,7 +56,8 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val listing = values[position]
-        Picasso.get().load(listing.images.firstPhoto.large).into(holder.carImage)
+        Picasso.get().load(listing.images.firstPhoto.large).resize(360,201)
+            .centerCrop().into(holder.carImage)
         val carModel = listing.year.toString() + " " +
                 listing.make + " " +
                 listing.model + " " +
@@ -70,6 +75,9 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
         */
         holder.itemView.setOnClickListener {
             listener.onItemClick(listing)
+        }
+        holder.callDealerButton.setOnClickListener{
+            listener.onButtonClick(listing)
         }
     }
 

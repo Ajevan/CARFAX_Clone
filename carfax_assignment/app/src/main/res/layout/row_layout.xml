@@ -5,25 +5,30 @@
     android:id="@+id/CarCard"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="@dimen/spacer_default"
     android:padding="6dip" >
 
     <ImageView
         android:id="@+id/CarImg"
         android:layout_width="360dp"
-        android:layout_height="201dp"
+        android:layout_height="200dp"
         android:contentDescription="TODO"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/CarModel"
-        android:layout_width="361dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_above="@id/CarShortDescription"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacer_default"
         android:layout_toRightOf="@id/CarImg"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:text="Example application"
         android:textColor="@color/black"
@@ -36,9 +41,11 @@
 
     <TextView
         android:id="@+id/CarShortDescription"
-        android:layout_width="357dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_default"
         android:layout_toRightOf="@id/CarImg"
+        android:background="@color/white"
         android:ellipsize="marquee"
         android:maxLines="3"
         android:singleLine="true"
@@ -52,8 +59,10 @@
 
     <TextView
         android:id="@+id/CarLocation"
-        android:layout_width="359dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_default"
+        android:background="@color/white"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +70,10 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="359dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacer_default"
+        android:background="@color/white"
         android:text="@string/button_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/carImg"
         android:layout_width="412dp"
-        android:layout_height="158dp"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,65 +18,64 @@
 
     <TextView
         android:id="@+id/carModel"
-        android:layout_width="322dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.28"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="16sp"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/spacer_large"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carImg" />
 
     <TextView
         android:id="@+id/carShortDescription"
-        android:layout_width="221dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        android:layout_marginStart="@dimen/spacer_large"
+        app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carModel" />
 
     <TextView
         android:id="@+id/vehicleInfo"
-        android:layout_width="155dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:text="@string/vehicle_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.097"
-        app:layout_constraintStart_toStartOf="parent"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:textColor="@color/black"
+        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carShortDescription" />
 
     <TextView
         android:id="@+id/locationValue"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="156dp"
+        android:gravity="left"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/vehicleInfo" />
 
     <TextView
         android:id="@+id/locationLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/spacer_large"
         android:layout_marginTop="28dp"
         android:text="@string/location"
-        app:layout_constraintEnd_toStartOf="@+id/locationValue"
-        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vehicleInfo" />
 
@@ -84,22 +83,19 @@
         android:id="@+id/exteriorColorValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/locationValue" />
 
     <TextView
         android:id="@+id/exteriorColorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/exterior_color"
-        app:layout_constraintEnd_toStartOf="@+id/exteriorColorValue"
-        app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/locationLabel" />
 
@@ -107,11 +103,9 @@
         android:id="@+id/interiorColorLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/interior_color"
-        app:layout_constraintEnd_toStartOf="@+id/interiorColorValue"
-        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exteriorColorLabel" />
 
@@ -119,11 +113,9 @@
         android:id="@+id/driveTypeLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/drive_type"
-        app:layout_constraintEnd_toStartOf="@+id/driveTypeValue"
-        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interiorColorLabel" />
 
@@ -131,56 +123,49 @@
         android:id="@+id/interiorColorValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/exteriorColorValue" />
 
     <TextView
         android:id="@+id/driveTypeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/interiorColorValue" />
 
     <TextView
         android:id="@+id/transmissionLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/transmission"
-        app:layout_constraintEnd_toStartOf="@+id/transmissionValue"
-        app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/driveTypeLabel" />
 
     <TextView
         android:id="@+id/transmissionValue"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/driveTypeValue" />
 
     <TextView
         android:id="@+id/bodyStyleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/body_style"
-        app:layout_constraintEnd_toStartOf="@+id/bodyStyleValue"
-        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/transmissionLabel" />
 
@@ -188,11 +173,9 @@
         android:id="@+id/engineLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/engine"
-        app:layout_constraintEnd_toStartOf="@+id/engineValue"
-        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bodyStyleLabel" />
 
@@ -200,11 +183,9 @@
         android:id="@+id/fuelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="@dimen/spacer_large"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="@string/fuel"
-        app:layout_constraintEnd_toStartOf="@+id/fuelValue"
-        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/engineLabel" />
 
@@ -212,43 +193,49 @@
         android:id="@+id/bodyStyleValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/transmissionValue" />
 
     <TextView
         android:id="@+id/engineValue"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/bodyStyleValue" />
 
     <TextView
         android:id="@+id/fuelValue"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="156dp"
+        android:layout_marginTop="@dimen/spacer_default"
         android:text="TextView"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/engineValue" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="361dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="42dp"
         android:text="@string/button_name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/fuelLabel"
+        app:layout_constraintVertical_bias="0.292" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
