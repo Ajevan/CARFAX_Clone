@@ -1,42 +1,36 @@
 package com.example.android.carfax
 
-import android.util.Log
+import com.example.android.carfax.network.CarListing
 import com.example.android.carfax.network.CarfaxAPIService
-import com.example.android.carfax.network.CarfaxData
 import com.example.android.carfax.offline.CarfaxDAO
 import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
 
-class CarfaxRepository(val carfaxAPi: CarfaxAPIService, val carfaxDAO: CarfaxDAO) {
+class CarfaxRepository(val carfaxAPI: CarfaxAPIService, val carfaxDAO: CarfaxDAO) {
 
-    fun getListings(): Observable<CarfaxData> {
+    fun getListings(): Observable<List<CarListing>> {
         return Observable.concatArray(
-            getListingsFromDb(),
-            getListingsFromApi())
+            getListingsFromApi(),
+            getListingsFromDb())
     }
 
 
-    fun getListingsFromDb(): Observable<CarfaxData> {
-        return carfaxDAO.getData()
-            .toObservable()
-            .doOnNext {
-                Log.d("Repository", "Dispatching  users from DB...")
+    fun getListingsFromDb(): Observable<List<CarListing>> {
+        return carfaxDAO.getData().toObservable()
+    }
+
+    //This function grabs listings from API
+    fun getListingsFromApi(): Observable<List<CarListing>> {
+        return carfaxAPI.getData()
+            .map { a -> a.listings }
+            .doOnNext {x ->
+                storeListingsInDb(x)
+            }.onErrorReturn {
+                listOf()
             }
     }
 
-    fun getListingsFromApi(): Observable<CarfaxData> {
-        return carfaxAPi.getData()
-            .doOnNext {
-                storeListingsInDb(it)
-            }
-    }
-
-    fun storeListingsInDb(data: CarfaxData) {
-        Observable.fromCallable { carfaxDAO.insert(data) }
-            .subscribeOn(Schedulers.io())
-            .observeOn(Schedulers.io())
-            .subscribe {
-            }
+    fun storeListingsInDb(data: List<CarListing>) {
+        val insertDataIntoDB = Observable.fromCallable { carfaxDAO.insertAll(data) }
     }
 
 }

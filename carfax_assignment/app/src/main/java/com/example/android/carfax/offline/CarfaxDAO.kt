@@ -11,11 +11,11 @@ import io.reactivex.Single
 @Dao
 interface CarfaxDAO {
     @Query ("SELECT * FROM listings")
-    fun getData(): Single<CarfaxData>
+    fun getData(): Single<List<CarListing>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(listing: CarfaxData)
+    fun insert(listing: CarListing)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(listings: List<CarfaxData>)
+    fun insertAll(listings: List<CarListing>)
 }
