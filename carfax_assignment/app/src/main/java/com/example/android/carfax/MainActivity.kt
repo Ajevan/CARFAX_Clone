@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity(), CarfaxAdapter.OnItemClickListener {
         setContentView(R.layout.activity_main)
         recyclerView = findViewById<View>(R.id.my_recycler_view) as RecyclerView
 
-        //val model: CarfaxViewModel by viewModels()
         val carfaxAPI: CarfaxAPIService =  CarfaxAPI.retrofitService
         val appDatabase = Room.databaseBuilder(applicationContext,
             CarfaxDB::class.java, "mvvm-database").build()

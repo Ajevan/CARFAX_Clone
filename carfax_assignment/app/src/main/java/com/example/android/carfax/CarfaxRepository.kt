@@ -18,7 +18,6 @@ class CarfaxRepository(val carfaxAPI: CarfaxAPIService, val carfaxDAO: CarfaxDAO
         return carfaxDAO.getData().toObservable()
     }
 
-    //This function grabs listings from API
     fun getListingsFromApi(): Observable<List<CarListing>> {
         return carfaxAPI.getData()
             .map { a -> a.listings }
