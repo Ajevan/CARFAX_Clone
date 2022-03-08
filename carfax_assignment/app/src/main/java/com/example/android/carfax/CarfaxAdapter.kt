@@ -7,15 +7,15 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android.carfax.network.CarListings
+import com.example.android.carfax.network.CarListing
 import com.squareup.picasso.Picasso
 
 
 class CarfaxAdapter (val listener: OnItemClickListener) :
     RecyclerView.Adapter<CarfaxAdapter.ViewHolder>() {
     interface OnItemClickListener {
-        fun onItemClick (listing: CarListings)
-        fun onButtonClick (listing: CarListings)
+        fun onItemClick (listing: CarListing)
+        fun onButtonClick (listing: CarListing)
     }
     inner class ViewHolder(layout: View) : RecyclerView.ViewHolder(
         layout
@@ -36,9 +36,9 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
         }
     }
 
-    private var values: List<CarListings> = ArrayList()
+    private var values: List<CarListing> = ArrayList()
 
-    fun setData(data: List<CarListings>) {
+    fun setData(data: List<CarListing>) {
         values = data
         notifyDataSetChanged()
     }
@@ -68,11 +68,7 @@ class CarfaxAdapter (val listener: OnItemClickListener) :
         val carLocation = listing.dealer.city + ", " + listing.dealer.state
         holder.carShortDescriptionLine.text = mainScreenDetails
         holder.carLocationLine.text = carLocation
-        /*
-        For the call dealer button, create a second onclicklistener that passes the listing, just
-        with the dealer info, then differentiate the click functions by button and view clicks,
-        this would be for the call dealer functionality
-        */
+
         holder.itemView.setOnClickListener {
             listener.onItemClick(listing)
         }
